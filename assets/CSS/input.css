@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	img {
+		@apply block max-w-full max-h-full;
+	}
+
+	abbr {
+		@apply no-underline;
+	}
+}
+
+@layer components {
+	.player {
+		@apply relative text-yellow-950 w-full;
+	}
+	.player img.badge-bg {
+		@apply block absolute top-0 left-0 w-full h-full object-contain -z-10;
+	}
+	.player img.photo {
+		@apply w-3/4 mx-auto;
+	}
+	.player-name {
+		@apply font-medium w-fit mx-auto leading-none;
+	}
+	.statistic {
+		@apply flex justify-around items-center font-semibold text-[6px] sm:text-[10px] leading-none  xs:my-2 sm:my-0;
+	}
+	.logos {
+		@apply flex justify-center items-center gap-4 [&>li]:w-5 xs:[&>li]:w-6;
+	}
+	.rating {
+		@apply font-medium text-xs sm:text-sm rounded-full bg-white/40 backdrop-blur-sm leading-none aspect-square flex justify-center items-center;
+	}
+}
