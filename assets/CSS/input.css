@@ -13,25 +13,53 @@
 }
 
 @layer components {
-	.player {
+	.terrain {
+		@apply relative aspect-[534/738] grid grid-cols-5 grid-rows-5 gap-3 sm:gap-4 justify-items-center sm:p-4;
+	}
+	.terrain .player {
 		@apply relative text-yellow-950 w-full;
 	}
-	.player img.badge-bg {
+	.terrain .player img.badge-bg {
 		@apply block absolute top-0 left-0 w-full h-full object-contain -z-10;
 	}
-	.player img.photo {
+	.terrain .player img.photo {
 		@apply w-3/4 mx-auto;
 	}
-	.player-name {
-		@apply font-medium w-fit mx-auto leading-none;
+	.terrain .player .player-name {
+		@apply font-medium w-fit mx-auto text-sm leading-none;
 	}
-	.statistic {
-		@apply flex justify-around items-center font-semibold text-[6px] sm:text-[10px] leading-none  xs:my-2 sm:my-0;
+	.terrain .player .statistic abbr {
+		@apply text-[clamp(6px,.8vw,.8rem)];
 	}
-	.logos {
+	.terrain .player .statistic {
+		@apply flex justify-around items-center font-medium text-[clamp(6px,1vw,1rem)] leading-none  xs:my-2 sm:my-0;
+	}
+	.terrain .player .logos {
 		@apply flex justify-center items-center gap-4 [&>li]:w-5 xs:[&>li]:w-6;
 	}
-	.rating {
+	.terrain .player .rating {
 		@apply font-medium text-xs sm:text-sm rounded-full bg-white/40 backdrop-blur-sm leading-none aspect-square flex justify-center items-center;
+	}
+	.players {
+		@apply bg-white/75 rounded-md border-black;
+	}
+	.players .search-bar {
+		@apply relative w-full overflow-hidden border-b border-gray-400;
+	}
+
+	.players-list .player {
+		@apply flex justify-around items-center gap-2 p-2 border-b border-gray-500;
+	}
+	.players-list .player-name {
+		@apply text-[clamp(7px,1vw,14px)];
+	}
+	.players-list .avatar {
+		@apply max-w-8 xs:max-w-10;
+	}
+	.players-list .logos {
+		@apply flex justify-center items-center gap-2 [&>li]:w-5;
+	}
+	.players-list .rating {
+		@apply font-medium text-[8px] rounded-full leading-none aspect-square flex justify-center items-center bg-yellow-950 text-white;
 	}
 }
