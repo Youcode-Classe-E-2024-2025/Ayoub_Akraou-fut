@@ -9,6 +9,13 @@
 		<link
 			href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
 			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+			integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+		<script defer type="module" src="./assets/script/main.js"></script>
 		<title>FB</title>
 	</head>
 	<body
@@ -31,290 +38,62 @@
 				</ul>
 			</nav>
 		</header>
-		<main class="max-w-screen-xl px-8 flex justify-center items-start gap-6 my-32 mx-auto">
-			<div class="players">
-				<div class="search-bar">
-					<input
-						id="search"
-						type="text"
-						placeholder="Rechercher..."
-						class="w-full pl-12 pr-4 py-2 text-sm text-gray-700 bg-white border-gray-300 rounded-md shadow-sm border focus:border-gray-500 outline-none" />
-					<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="w-5 h-5 text-gray-500"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M10 17a7 7 0 100-14 7 7 0 000 14zm8.485-1.485l3.515 3.515" />
-						</svg>
-					</div>
-				</div>
+		<main class="max-w-screen-xl px-8 my-32 mx-auto">
+			<div class="flex justify-center items-start gap-6">
+				<div class="players flex-1">
+					<select
+						class="w-full py-2 mb-0.5 rounded-sm text-sm text-gray-700 bg-white"
+						name="formation"
+						id="formation">
+						<option value="4-4-2">4-4-2</option>
+						<option value="4-4-2">4-4-2</option>
+						<option value="4-4-2">4-4-2</option>
+					</select>
+					<div class="controllers relative flex items-center space-x-4 bg-white rounded-md">
+						<!-- Search Bar -->
+						<div class="search-bar relative w-full">
+							<input
+								id="search"
+								type="text"
+								placeholder="Rechercher..."
+								class="w-full pl-12 pr-4 py-2 text-sm text-gray-700 bg-white border-gray-300 rounded-md shadow-sm border focus:border-gray-500 outline-none" />
+							<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									class="w-5 h-5 text-gray-500"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="2">
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M10 17a7 7 0 100-14 7 7 0 000 14zm8.485-1.485l3.515 3.515" />
+								</svg>
+							</div>
+						</div>
 
-				<ul class="players-list">
-					<li class="player">
-						<img class="avatar" src="https://cdn.sofifa.net/players/231/281/25_120.png" alt="" />
-						<h4 class="player-name">Trent Alexander-Arnold</h4>
-						<ul class="logos">
-							<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-							<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-							<li class="rating" title="rating">93</li>
-						</ul>
-					</li>
-					<li class="player">
-						<img class="avatar" src="https://cdn.sofifa.net/players/231/281/25_120.png" alt="" />
-						<h4 class="player-name">Trent Alexander-Arnold</h4>
-						<ul class="logos">
-							<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-							<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-							<li class="rating" title="rating">93</li>
-						</ul>
-					</li>
-					<li class="player">
-						<img class="avatar" src="https://cdn.sofifa.net/players/231/281/25_120.png" alt="" />
-						<h4 class="player-name">Trent Alexander-Arnold</h4>
-						<ul class="logos">
-							<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-							<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-							<li class="rating" title="rating">93</li>
-						</ul>
-					</li>
-					<li class="player">
-						<img class="avatar" src="https://cdn.sofifa.net/players/231/281/25_120.png" alt="" />
-						<h4 class="player-name">Trent Alexander-Arnold</h4>
-						<ul class="logos">
-							<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-							<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-							<li class="rating" title="rating">93</li>
-						</ul>
-					</li>
-					<li class="player">
-						<img class="avatar" src="https://cdn.sofifa.net/players/231/281/25_120.png" alt="" />
-						<h4 class="player-name">Trent Alexander-Arnold</h4>
-						<ul class="logos">
-							<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-							<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-							<li class="rating" title="rating">93</li>
-						</ul>
-					</li>
-					<li class="player">
-						<img class="avatar" src="https://cdn.sofifa.net/players/231/281/25_120.png" alt="" />
-						<h4 class="player-name">Trent Alexander-Arnold</h4>
-						<ul class="logos">
-							<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-							<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-							<li class="rating" title="rating">93</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-			<div class="terrain">
-				<img
-					src="./assets/images/TERRAIN_FOOTBALL.svg"
-					alt=""
-					class="absolute top-0 left-0 min-w-full min-h-full -z-10" />
-				<div class="player col-start-2">
-					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
-					<img class="photo" src="https://cdn.sofifa.net/players/230/621/25_120.png" alt="" />
-					<h3 class="player-name">Donnarumma</h3>
-					<ul class="statistic">
-						<li class="pace"><abbr title="pace">PC</abbr><br />85</li>
-						<li class="shooting"><abbr title="shooting">SH</abbr><br />92</li>
-						<li class="passing"><abbr title="passing">PS</abbr><br />91</li>
-						<li class="dribbling"><abbr title="dribbling">DR</abbr><br />95</li>
-						<li class="defending"><abbr title="defending">DF</abbr><br />35</li>
-						<li class="physical"><abbr title="physical">PH</abbr><br />65</li>
-					</ul>
-					<ul class="logos">
-						<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-						<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-						<li class="rating" title="rating">93</li>
+						<!-- Add Icon -->
+						<button
+							title="add player"
+							class="add-btn absolute right-1 cursor-pointer bg-emerald-300 text-white p-2 rounded-full shadow-md hover:bg-emerald-400">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="w-4 h-4"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+							</svg>
+						</button>
+					</div>
+
+					<ul class="players-list max-h-screen overflow-y-scroll">
+						--- open console ---
 					</ul>
 				</div>
-				<div class="player col-start-4">
-					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
-					<img class="photo" src="https://cdn.sofifa.net/players/230/621/25_120.png" alt="" />
-					<h3 class="player-name">Donnarumma</h3>
-					<ul class="statistic">
-						<li class="pace"><abbr title="pace">PC</abbr><br />85</li>
-						<li class="shooting"><abbr title="shooting">SH</abbr><br />92</li>
-						<li class="passing"><abbr title="passing">PS</abbr><br />91</li>
-						<li class="dribbling"><abbr title="dribbling">DR</abbr><br />95</li>
-						<li class="defending"><abbr title="defending">DF</abbr><br />35</li>
-						<li class="physical"><abbr title="physical">PH</abbr><br />65</li>
-					</ul>
-					<ul class="logos">
-						<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-						<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-						<li class="rating" title="rating">93</li>
-					</ul>
-				</div>
-				<div class="player row-start-2">
-					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
-					<img class="photo" src="https://cdn.sofifa.net/players/230/621/25_120.png" alt="" />
-					<h3 class="player-name">Donnarumma</h3>
-					<ul class="statistic">
-						<li class="pace"><abbr title="pace">PC</abbr><br />85</li>
-						<li class="shooting"><abbr title="shooting">SH</abbr><br />92</li>
-						<li class="passing"><abbr title="passing">PS</abbr><br />91</li>
-						<li class="dribbling"><abbr title="dribbling">DR</abbr><br />95</li>
-						<li class="defending"><abbr title="defending">DF</abbr><br />35</li>
-						<li class="physical"><abbr title="physical">PH</abbr><br />65</li>
-					</ul>
-					<ul class="logos">
-						<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-						<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-						<li class="rating" title="rating">93</li>
-					</ul>
-				</div>
-				<div class="player row-start-2 translate-y-12">
-					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
-					<img class="photo" src="https://cdn.sofifa.net/players/230/621/25_120.png" alt="" />
-					<h3 class="player-name">Donnarumma</h3>
-					<ul class="statistic">
-						<li class="pace"><abbr title="pace">PC</abbr><br />85</li>
-						<li class="shooting"><abbr title="shooting">SH</abbr><br />92</li>
-						<li class="passing"><abbr title="passing">PS</abbr><br />91</li>
-						<li class="dribbling"><abbr title="dribbling">DR</abbr><br />95</li>
-						<li class="defending"><abbr title="defending">DF</abbr><br />35</li>
-						<li class="physical"><abbr title="physical">PH</abbr><br />65</li>
-					</ul>
-					<ul class="logos">
-						<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-						<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-						<li class="rating" title="rating">93</li>
-					</ul>
-				</div>
-				<div class="player row-start-2 col-start-4 translate-y-12">
-					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
-					<img class="photo" src="https://cdn.sofifa.net/players/230/621/25_120.png" alt="" />
-					<h3 class="player-name">Donnarumma</h3>
-					<ul class="statistic">
-						<li class="pace"><abbr title="pace">PC</abbr><br />85</li>
-						<li class="shooting"><abbr title="shooting">SH</abbr><br />92</li>
-						<li class="passing"><abbr title="passing">PS</abbr><br />91</li>
-						<li class="dribbling"><abbr title="dribbling">DR</abbr><br />95</li>
-						<li class="defending"><abbr title="defending">DF</abbr><br />35</li>
-						<li class="physical"><abbr title="physical">PH</abbr><br />65</li>
-					</ul>
-					<ul class="logos">
-						<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-						<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-						<li class="rating" title="rating">93</li>
-					</ul>
-				</div>
-				<div class="player row-start-2 col-start-5">
-					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
-					<img class="photo" src="https://cdn.sofifa.net/players/230/621/25_120.png" alt="" />
-					<h3 class="player-name">Donnarumma</h3>
-					<ul class="statistic">
-						<li class="pace"><abbr title="pace">PC</abbr><br />85</li>
-						<li class="shooting"><abbr title="shooting">SH</abbr><br />92</li>
-						<li class="passing"><abbr title="passing">PS</abbr><br />91</li>
-						<li class="dribbling"><abbr title="dribbling">DR</abbr><br />95</li>
-						<li class="defending"><abbr title="defending">DF</abbr><br />35</li>
-						<li class="physical"><abbr title="physical">PH</abbr><br />65</li>
-					</ul>
-					<ul class="logos">
-						<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-						<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-						<li class="rating" title="rating">93</li>
-					</ul>
-				</div>
-				<div class="player row-start-4">
-					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
-					<img class="photo" src="https://cdn.sofifa.net/players/230/621/25_120.png" alt="" />
-					<h3 class="player-name">Donnarumma</h3>
-					<ul class="statistic">
-						<li class="pace"><abbr title="pace">PC</abbr><br />85</li>
-						<li class="shooting"><abbr title="shooting">SH</abbr><br />92</li>
-						<li class="passing"><abbr title="passing">PS</abbr><br />91</li>
-						<li class="dribbling"><abbr title="dribbling">DR</abbr><br />95</li>
-						<li class="defending"><abbr title="defending">DF</abbr><br />35</li>
-						<li class="physical"><abbr title="physical">PH</abbr><br />65</li>
-					</ul>
-					<ul class="logos">
-						<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-						<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-						<li class="rating" title="rating">93</li>
-					</ul>
-				</div>
-				<div class="player row-start-4 translate-y-12">
-					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
-					<img class="photo" src="https://cdn.sofifa.net/players/230/621/25_120.png" alt="" />
-					<h3 class="player-name">Donnarumma</h3>
-					<ul class="statistic">
-						<li class="pace"><abbr title="pace">PC</abbr><br />85</li>
-						<li class="shooting"><abbr title="shooting">SH</abbr><br />92</li>
-						<li class="passing"><abbr title="passing">PS</abbr><br />91</li>
-						<li class="dribbling"><abbr title="dribbling">DR</abbr><br />95</li>
-						<li class="defending"><abbr title="defending">DF</abbr><br />35</li>
-						<li class="physical"><abbr title="physical">PH</abbr><br />65</li>
-					</ul>
-					<ul class="logos">
-						<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-						<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-						<li class="rating" title="rating">93</li>
-					</ul>
-				</div>
-				<div class="player row-start-4 col-start-4 translate-y-12">
-					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
-					<img class="photo" src="https://cdn.sofifa.net/players/230/621/25_120.png" alt="" />
-					<h3 class="player-name">Donnarumma</h3>
-					<ul class="statistic">
-						<li class="pace"><abbr title="pace">PC</abbr><br />85</li>
-						<li class="shooting"><abbr title="shooting">SH</abbr><br />92</li>
-						<li class="passing"><abbr title="passing">PS</abbr><br />91</li>
-						<li class="dribbling"><abbr title="dribbling">DR</abbr><br />95</li>
-						<li class="defending"><abbr title="defending">DF</abbr><br />35</li>
-						<li class="physical"><abbr title="physical">PH</abbr><br />65</li>
-					</ul>
-					<ul class="logos">
-						<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-						<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-						<li class="rating" title="rating">93</li>
-					</ul>
-				</div>
-				<div class="player row-start-4 col-start-5">
-					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
-					<img class="photo" src="https://cdn.sofifa.net/players/230/621/25_120.png" alt="" />
-					<h3 class="player-name">Donnarumma</h3>
-					<ul class="statistic">
-						<li class="pace"><abbr title="pace">PC</abbr><br />85</li>
-						<li class="shooting"><abbr title="shooting">SH</abbr><br />92</li>
-						<li class="passing"><abbr title="passing">PS</abbr><br />91</li>
-						<li class="dribbling"><abbr title="dribbling">DR</abbr><br />95</li>
-						<li class="defending"><abbr title="defending">DF</abbr><br />35</li>
-						<li class="physical"><abbr title="physical">PH</abbr><br />65</li>
-					</ul>
-					<ul class="logos">
-						<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-						<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-						<li class="rating" title="rating">93</li>
-					</ul>
-				</div>
-				<div class="player row-start-5 col-start-3">
-					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
-					<img class="photo" src="https://cdn.sofifa.net/players/230/621/25_120.png" alt="" />
-					<h3 class="player-name">Donnarumma</h3>
-					<ul class="statistic">
-						<li class="pace"><abbr title="pace">PC</abbr><br />85</li>
-						<li class="shooting"><abbr title="shooting">SH</abbr><br />92</li>
-						<li class="passing"><abbr title="passing">PS</abbr><br />91</li>
-						<li class="dribbling"><abbr title="dribbling">DR</abbr><br />95</li>
-						<li class="defending"><abbr title="defending">DF</abbr><br />35</li>
-						<li class="physical"><abbr title="physical">PH</abbr><br />65</li>
-					</ul>
-					<ul class="logos">
-						<li class="flag"><img src="https://cdn.sofifa.net/flags/ar.png" alt="" /></li>
-						<li class="logo"><img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" /></li>
-						<li class="rating" title="rating">93</li>
-					</ul>
-				</div>
+				<div class="terrain flex-[3]"></div>
 			</div>
 		</main>
 	</body>

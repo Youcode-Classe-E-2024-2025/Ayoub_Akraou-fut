@@ -14,7 +14,7 @@
 
 @layer components {
 	.terrain {
-		@apply relative aspect-[534/738] grid grid-cols-5 grid-rows-5 gap-3 sm:gap-4 justify-items-center sm:p-4;
+		@apply relative bg-[url("../images/TERRAIN_FOOTBALL.svg")] bg-contain z-0 aspect-[534/738] grid grid-cols-5 grid-rows-5 gap-3 sm:gap-4 justify-items-center sm:p-4;
 	}
 	.terrain .player {
 		@apply relative text-yellow-950 w-full;
@@ -35,7 +35,7 @@
 		@apply flex justify-around items-center font-medium text-[clamp(6px,1vw,1rem)] leading-none  xs:my-2 sm:my-0;
 	}
 	.terrain .player .logos {
-		@apply flex justify-center items-center gap-4 [&>li]:w-5 xs:[&>li]:w-6;
+		@apply flex justify-center items-center gap-3 sm:gap-2 md:gap-3 [&>li]:w-5 xs:[&>li]:w-6;
 	}
 	.terrain .player .rating {
 		@apply font-medium text-xs sm:text-sm rounded-full bg-white/40 backdrop-blur-sm leading-none aspect-square flex justify-center items-center;
@@ -43,23 +43,82 @@
 	.players {
 		@apply bg-white/75 rounded-md border-black;
 	}
-	.players .search-bar {
-		@apply relative w-full overflow-hidden border-b border-gray-400;
+	.add-form-input {
+		@apply w-full px-4 py-1 mb-2 border border-gray-400 rounded;
+	}
+	.add-form-small-input {
+		@apply w-full px-1 py-1 mb-2 border border-gray-400 rounded;
+	}
+}
+
+@layer utilities {
+	.position-1 {
+		@apply col-start-2;
+	}
+	.position-2 {
+		@apply col-start-4;
+	}
+	.position-3 {
+		@apply row-start-2;
+	}
+	.position-4 {
+		@apply row-start-2 translate-y-12;
+	}
+	.position-5 {
+		@apply row-start-2 col-start-4 translate-y-12;
+	}
+	.position-6 {
+		@apply row-start-2 col-start-5;
+	}
+	.position-7 {
+		@apply row-start-4;
+	}
+	.position-8 {
+		@apply row-start-4 translate-y-12;
+	}
+	.position-9 {
+		@apply row-start-4 col-start-4 translate-y-12;
+	}
+	.position-10 {
+		@apply row-start-4 col-start-5;
+	}
+	.position-11 {
+		@apply row-start-5 col-start-3;
 	}
 
-	.players-list .player {
-		@apply flex justify-around items-center gap-2 p-2 border-b border-gray-500;
+	.active-badge {
+		filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px #000);
+		scale: 1.2;
 	}
-	.players-list .player-name {
-		@apply text-[clamp(7px,1vw,14px)];
+}
+.fade-in {
+	animation: fade-in 300ms forwards;
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		visibility: hidden;
 	}
-	.players-list .avatar {
-		@apply max-w-8 xs:max-w-10;
+
+	to {
+		opacity: 1;
+		visibility: visible;
 	}
-	.players-list .logos {
-		@apply flex justify-center items-center gap-2 [&>li]:w-5;
+}
+
+.fade-out {
+	animation: fade-out 300ms forwards;
+}
+
+@keyframes fade-out {
+	from {
+		opacity: 1;
+		visibility: visible;
 	}
-	.players-list .rating {
-		@apply font-medium text-[8px] rounded-full leading-none aspect-square flex justify-center items-center bg-yellow-950 text-white;
+
+	to {
+		opacity: 0;
+		visibility: hidden;
 	}
 }
