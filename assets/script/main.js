@@ -91,6 +91,8 @@ window.deletePlayer = function (id) {
 	players = players.filter((player) => player.id != id);
 	displayPlayersList(players);
 	updateLocalStoragePlayers();
+	selectedPlayers = selectedPlayers.map((player) => (player.id == id ? "empty" : player));
+	displaySelectedPlayers(selectedPlayers);
 };
 // open EditForm
 window.openEditForm = function (id) {

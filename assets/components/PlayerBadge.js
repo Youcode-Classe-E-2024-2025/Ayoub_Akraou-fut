@@ -17,7 +17,7 @@ export default function (player, classes, index) {
 	return `<div onclick="placePlayer(event)" class="player ${classes}" data-index="${index}">
 					<i
 					onclick="deletePlayerBadge(${player.id})"
-					class="delete-icon fa-solid fa-xmark bg-white/20 rounded-full w-3 !flex justify-center items-center aspect-square text-sm hover:scale-125 transition-transform cursor-pointer absolute top-1 right-0"></i>
+					class="delete-icon fa-solid fa-xmark bg-white/30 rounded-full w-5 sm:w-3 !flex justify-center items-center aspect-square text-base sm:text-sm hover:scale-125 transition-transform cursor-pointer absolute top-1 right-0"></i>
 					<img class="badge-bg" src="./assets/images/badge.png" alt="" />
 					<img class="photo" src="${player.photo}" alt="" />
 					<h3 class="player-name">${player.name.split(" ").slice(-1)}</h3>
