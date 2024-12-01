@@ -7,9 +7,11 @@ import AddForm from "../components/AddForm.js";
 import EditForm from "../components/EditForm.js";
 import Loader from "../components/Loader.js";
 
-let dataPath = "/assets/data/data.json";
+let dataPath = "assets/data/data.json";
 if (window.location.href.includes("/Ayoub_Akraou-fut/")) {
-	document.head.insertAdjacentHTML("afterbegin", '<base href="/Ayoub_Akraou-fut/" />');
+	console.log("it contains /Ayoub_Akraou-fut/");
+
+	// document.head.insertAdjacentHTML("afterbegin", '<base href="/Ayoub_Akraou-fut/" />');
 	dataPath = "../data/data.json";
 }
 
