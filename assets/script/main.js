@@ -7,8 +7,10 @@ import AddForm from "../components/AddForm.js";
 import EditForm from "../components/EditForm.js";
 import Loader from "../components/Loader.js";
 
+let dataPath = "/assets/data/data.json";
 if (window.location.href.includes("/Ayoub_Akraou-fut/")) {
 	document.head.insertAdjacentHTML("afterbegin", '<base href="/Ayoub_Akraou-fut/" />');
+	dataPath = "../data/data.json";
 }
 
 let players;
@@ -31,7 +33,7 @@ function updateLocalStoragePlayers() {
 	localStorage.setItem("players", JSON.stringify(players));
 }
 
-fetch("/assets/data/data.json")
+fetch(dataPath)
 	.then((response) => response.json())
 	.then((data) => {
 		// if there is not a property "players" in localestorage use the fetched data as an initial value;
@@ -213,9 +215,10 @@ function updateLocalStorageSelectedPlayers() {
 
 window.deletePlayerBadge = function (id) {
 	const index = selectedPlayers.findIndex((player) => player.id == id);
-	selectedPlayers[index] = "empty";
+	selectedPlayers[index] = { ...initialSelectedPlayers[index] };
 	displaySelectedPlayers(selectedPlayers);
 	updateLocalStorageSelectedPlayers();
+	displayPlayersList(players);
 };
 
 let indexInSeleceted;
@@ -238,6 +241,7 @@ window.choosePlayer = function (event) {
 		displaySelectedPlayers(selectedPlayers);
 		updateLocalStorageSelectedPlayers();
 		indexInSeleceted = null;
+		displayPlayersList(players);
 	}
 };
 
@@ -256,6 +260,7 @@ el("#clear").addEventListener("click", () => {
 	selectedPlayers = [...initialSelectedPlayers];
 	displaySelectedPlayers(selectedPlayers);
 	updateLocalStorageSelectedPlayers();
+	displayPlayersList(players);
 });
 
 // synchronise the localstorage with the UI
