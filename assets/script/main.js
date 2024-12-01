@@ -2,13 +2,31 @@ import { el, All } from "./lib.js";
 import Player from "../components/Player.js";
 import PlayerBadge from "../components/PlayerBadge.js";
 import EmptyPlayerBadge from "../components/EmptyPlayerBadge.js";
-import AddForm from "../components/AddForm.js";
 import Overlay from "../components/Overlay.js";
+import AddForm from "../components/AddForm.js";
 import EditForm from "../components/EditForm.js";
+import Loader from "../components/Loader.js";
+
+if (window.location.href.includes("/Ayoub_Akraou-fut/")) {
+	document.head.insertAdjacentHTML("afterbegin", '<base href="/Ayoub_Akraou-fut/" />');
+}
 
 let players;
 let selectedPlayers;
-
+const initialSelectedPlayers = [
+	{ position: "ST" },
+	{ position: "ST" },
+	{ position: "M" },
+	{ position: "M" },
+	{ position: "M" },
+	{ position: "M" },
+	{ position: "B" },
+	{ position: "B" },
+	{ position: "B" },
+	{ position: "B" },
+	{ position: "GK" },
+];
+// update players array in localstorage
 function updateLocalStoragePlayers() {
 	localStorage.setItem("players", JSON.stringify(players));
 }
@@ -16,10 +34,12 @@ function updateLocalStoragePlayers() {
 fetch("/assets/data/data.json")
 	.then((response) => response.json())
 	.then((data) => {
+		// if there is not a property "players" in localestorage use the fetched data as an initial value;
 		players = JSON.parse(localStorage.getItem("players")) || data.players;
-		selectedPlayers = JSON.parse(localStorage.getItem("selected-players")) || players.slice(0, 11);
-		displaySelectedPlayers(selectedPlayers);
 		updateLocalStoragePlayers();
+
+		selectedPlayers = JSON.parse(localStorage.getItem("selected-players")) || [...initialSelectedPlayers];
+		displaySelectedPlayers(selectedPlayers);
 		updateLocalStorageSelectedPlayers();
 		displayPlayersList(players);
 		// search players feature
@@ -98,6 +118,7 @@ window.deletePlayer = function (id) {
 window.openEditForm = function (id) {
 	const player = players.find((player) => player.id == id);
 	el("body").insertAdjacentHTML("beforeend", Overlay(EditForm(player)));
+	console.log(selectedPlayers[0].name);
 };
 
 // editPlayer
@@ -105,13 +126,25 @@ window.editPlayer = function (event, id) {
 	event.preventDefault();
 	if (!validateForm()) return;
 	const updatedPlayer = getFormData();
-	const index = players.findIndex((player) => player.id == id);
-	players[index] = {
-		id: players[index].id,
+	// update player in the players list
+	const indexInPlayers = players.findIndex((player) => player.id == id);
+	players[indexInPlayers] = {
 		...updatedPlayer,
+		id: players[indexInPlayers].id,
 	};
+	// update the UI and localStorage
 	displayPlayersList(players);
 	updateLocalStoragePlayers();
+
+	// update the player in selectedPlayer (en terrain)
+	const indexInSelectedP = selectedPlayers.findIndex((player) => player.id == id);
+	players[indexInSelectedP] = {
+		...updatedPlayer,
+		id: players[indexInSelectedP].id,
+	};
+	// update the UI and localStorage
+	displaySelectedPlayers(selectedPlayers);
+	updateLocalStorageSelectedPlayers();
 	closeForm();
 };
 
@@ -169,7 +202,7 @@ function isValidNumber(value) {
 function displaySelectedPlayers(selectedPlayers) {
 	el(".terrain").innerHTML = selectedPlayers
 		.map((player, i) =>
-			player == "empty" ? EmptyPlayerBadge(`position-${i + 1}`, i) : PlayerBadge(player, `position-${i + 1}`, i)
+			!player.name ? EmptyPlayerBadge(player, `position-${i + 1}`, i) : PlayerBadge(player, `position-${i + 1}`, i)
 		)
 		.join("");
 }
@@ -186,10 +219,14 @@ window.deletePlayerBadge = function (id) {
 };
 
 let indexInSeleceted;
-window.placePlayer = function (event) {
+window.placePlayer = function (event, index, position) {
 	All(".terrain .player").forEach((p) => p.classList.remove("active-badge"));
 	event.currentTarget.classList.add("active-badge");
-	indexInSeleceted = event.currentTarget.dataset.index;
+	indexInSeleceted = index;
+	const filteredPlayers = players.filter((player) =>
+		player.position.toLowerCase().includes(position.toLowerCase().at(-1))
+	);
+	displayPlayersList(filteredPlayers);
 };
 
 window.choosePlayer = function (event) {
@@ -203,3 +240,25 @@ window.choosePlayer = function (event) {
 		indexInSeleceted = null;
 	}
 };
+
+// add loader
+document.body.insertAdjacentHTML("beforeend", Loader());
+// if the document finshed loading apply a fadeout animation
+window.addEventListener("load", function () {
+	setTimeout(() => el("#loader").classList.add("fade-out"), 500);
+	// if the animation finished remove loader
+	el("#loader").addEventListener("animationend", () => el("#loader").remove());
+});
+
+// clear selected players
+
+el("#clear").addEventListener("click", () => {
+	selectedPlayers = [...initialSelectedPlayers];
+	displaySelectedPlayers(selectedPlayers);
+	updateLocalStorageSelectedPlayers();
+});
+
+// synchronise the localstorage with the UI
+window.addEventListener("storage", function (event) {
+	console.log("Storage event triggered:", event);
+});

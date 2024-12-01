@@ -14,7 +14,9 @@ export default function (player, classes, index) {
 <li class="defending"><abbr title="defending">DF</abbr><br />${player.defending}</li>
 <li class="physical"><abbr title="physical">PH</abbr><br />${player.physical}</li>`;
 
-	return `<div onclick="placePlayer(event)" class="player ${classes}" data-index="${index}">
+	return `<div onclick="placePlayer(event, ${index}, '${
+		player.position
+	}')" class="player cursor-pointer ${classes}" data-index="${index}" data-position="${player.position}">
 					<i
 					onclick="deletePlayerBadge(${player.id})"
 					class="delete-icon fa-solid fa-xmark bg-white/30 rounded-full w-5 sm:w-3 !flex justify-center items-center aspect-square text-base sm:text-sm hover:scale-125 transition-transform cursor-pointer absolute top-1 right-0"></i>

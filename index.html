@@ -15,11 +15,12 @@
 			integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer" />
+		<link rel="icon" href="./assets//images/ballon.png" type="image/x-icon" />
 		<script defer type="module" src="./assets/script/main.js"></script>
 		<title>FB</title>
 	</head>
 	<body
-		class="relative font-poppins bg-[url('/assets/images/bg.webp')] bg-cover bg-center before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gray-800/40 before:-z-10">
+		class="relative font-poppins bg-[url('../images/bg.webp')] bg-cover bg-center before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gray-800/40 before:-z-10">
 		<header class="bg-black fixed top-0 left-0 w-screen py-3 px-7 z-50">
 			<nav class="max-w-5xl mx-auto">
 				<ul class="flex justify-between items-center gap-6 sm:gap-10 text-white">
@@ -28,12 +29,13 @@
 					</li>
 
 					<li class="">
-						<a href="./assets/pages/squade-builder/squade-builder.html" class="text-xl text-nowrap"
-							>Squade Builder</a
-						>
+						<a class="text-xl text-nowrap">Squade Builder</a>
 					</li>
-					<li class="mr-auto">
-						<a href="./assets/pages/players/players.html" class="text-xl">Players</a>
+					<li class="">
+						<a class="text-xl">Players</a>
+					</li>
+					<li class="mr-auto" onclick="localStorage.clear()">
+						<a class="text-lg cursor-pointer" title="just for testing purpose">Clear localstorage</a>
 					</li>
 				</ul>
 			</nav>
@@ -85,7 +87,13 @@
 						--- open console ---
 					</ul>
 				</div>
-				<div class="terrain flex-[3]"></div>
+				<div class="flex-[3] relative">
+					<i
+						id="clear"
+						title="clear/reset"
+						class="fa-solid fa-repeat absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl text-gray-900 z-20 aspect-square bg-white/50 p-1 rounded-full cursor-pointer hover:bg-white active:scale-95"></i>
+					<div class="terrain"></div>
+				</div>
 			</div>
 		</main>
 	</body>

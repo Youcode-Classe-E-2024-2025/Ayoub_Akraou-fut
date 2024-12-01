@@ -1,5 +1,5 @@
-export default function (classes, index) {
-	return `<div onclick="placePlayer(event)" class="player cursor-pointer hover:scale-110 transition-transform flex justify-center items-center ${classes}" data-index="${index}">
+export default function (player, classes, index) {
+	return `<div onclick="placePlayer(event, ${index}, '${player.position}')" class="player cursor-pointer hover:scale-110 transition-transform flex justify-center items-center scale-up ${classes}" data-index="${index} data-position="${player.position}">
 					<img class="badge-bg" src="/assets/images/placeholder-card-normal.webp" alt="" />
 					<div class="max-w-[40%] mx-auto relative">
 						<svg class="max-w-full text-emerald-400" viewBox="0 0 36 42" fill="none" width="36">

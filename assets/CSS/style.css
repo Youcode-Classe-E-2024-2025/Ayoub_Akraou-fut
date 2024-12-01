@@ -591,7 +591,26 @@ abbr {
   color: rgb(66 32 6 / var(--tw-text-opacity, 1));
 }
 
+.terrain .\!player {
+  position: relative;
+  width: 100%;
+  --tw-text-opacity: 1;
+  color: rgb(66 32 6 / var(--tw-text-opacity, 1));
+}
+
 .terrain .player img.badge-bg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -10;
+  display: block;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.terrain .\!player img.badge-bg {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -609,6 +628,12 @@ abbr {
   width: 75%;
 }
 
+.terrain .\!player img.photo {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
 .terrain .player .player-name {
   margin-left: auto;
   margin-right: auto;
@@ -620,7 +645,22 @@ abbr {
   line-height: 1;
 }
 
+.terrain .\!player .player-name {
+  margin-left: auto;
+  margin-right: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
 .terrain .player .statistic abbr {
+  font-size: clamp(6px,.8vw,.8rem);
+}
+
+.terrain .\!player .statistic abbr {
   font-size: clamp(6px,.8vw,.8rem);
 }
 
@@ -642,6 +682,29 @@ abbr {
 
 @media (min-width: 640px) {
   .terrain .player .statistic {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.terrain .\!player .statistic {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: clamp(6px,1vw,1rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+@media (min-width: 480px) {
+  .terrain .\!player .statistic {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .terrain .\!player .statistic {
     margin-top: 0px;
     margin-bottom: 0px;
   }
@@ -676,6 +739,35 @@ abbr {
   }
 }
 
+.terrain .\!player .logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .terrain .\!player .logos {
+    gap: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .terrain .\!player .logos {
+    gap: 0.75rem;
+  }
+}
+
+.terrain .\!player .logos>li {
+  width: 1.25rem;
+}
+
+@media (min-width: 480px) {
+  .terrain .\!player .logos>li {
+    width: 1.5rem;
+  }
+}
+
 .terrain .player .rating {
   display: flex;
   aspect-ratio: 1 / 1;
@@ -694,6 +786,29 @@ abbr {
 
 @media (min-width: 640px) {
   .terrain .player .rating {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+.terrain .\!player .rating {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: rgb(255 255 255 / 0.4);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+@media (min-width: 640px) {
+  .terrain .\!player .rating {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
@@ -1018,13 +1133,17 @@ abbr {
   background-color: rgb(255 255 255 / 0.3);
 }
 
+.bg-white\/50 {
+  background-color: rgb(255 255 255 / 0.5);
+}
+
 .bg-yellow-950 {
   --tw-bg-opacity: 1;
   background-color: rgb(66 32 6 / var(--tw-bg-opacity, 1));
 }
 
-.bg-\[url\(\'\/assets\/images\/bg\.webp\'\)\] {
-  background-image: url('/assets/images/bg.webp');
+.bg-\[url\(\'\.\.\/images\/bg\.webp\'\)\] {
+  background-image: url('../images/bg.webp');
 }
 
 .bg-cover {
@@ -1038,6 +1157,10 @@ abbr {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .p-2 {
@@ -1187,6 +1310,11 @@ abbr {
   color: rgb(55 65 81 / var(--tw-text-opacity, 1));
 }
 
+.text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
@@ -1301,6 +1429,10 @@ abbr {
   animation: fade-in 300ms forwards;
 }
 
+.fade-in-slow {
+  animation: fade-in 600ms forwards;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -1326,6 +1458,86 @@ abbr {
   to {
     opacity: 0;
     visibility: hidden;
+  }
+}
+
+/********** loader ***********/
+
+main-loader {
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.main-fader {
+  width: 100%;
+  height: 100vh;
+  background-color: #333;
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-fader .loader svg {
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+.main-fader .loader svg path {
+  animation-duration: 1s;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+  color: #26a380;
+}
+
+.main-fader .loader svg path.path-7 {
+  animation-delay: -1s;
+}
+
+.main-fader .loader svg path.path-6 {
+  animation-delay: -0.875s;
+}
+
+.main-fader .loader svg path.path-5 {
+  animation-delay: -0.75s;
+}
+
+.main-fader .loader svg path.path-4 {
+  animation-delay: -0.625s;
+}
+
+.main-fader .loader svg path.path-3 {
+  animation-delay: -0.5s;
+}
+
+.main-fader .loader svg path.path-2 {
+  animation-delay: -0.375s;
+}
+
+.main-fader .loader svg path.path-1 {
+  animation-delay: -0.25s;
+}
+
+.main-fader .loader svg path.path-0 {
+  animation-delay: -0.125s;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.1;
+  }
+
+  30% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0.1;
   }
 }
 
@@ -1384,6 +1596,11 @@ abbr {
 .hover\:bg-gray-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
 .focus\:border-gray-500:focus {
