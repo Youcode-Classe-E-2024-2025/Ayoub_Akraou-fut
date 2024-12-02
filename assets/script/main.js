@@ -7,8 +7,8 @@ import AddForm from "../components/AddForm.js";
 import EditForm from "../components/EditForm.js";
 import Loader from "../components/Loader.js";
 
-let dataPath = "/Ayoub_Akraou-fut/assets/data/data.json";
-// let dataPath = "/assets/data/data.json";
+// let dataPath = "/Ayoub_Akraou-fut/assets/data/data.json";
+let dataPath = "/assets/data/data.json";
 
 let players;
 let selectedPlayers;
