@@ -7,8 +7,12 @@ import AddForm from "../components/AddForm.js";
 import EditForm from "../components/EditForm.js";
 import Loader from "../components/Loader.js";
 
+// for github pages
 let dataPath = "/Ayoub_Akraou-fut/assets/data/data.json";
-// let dataPath = "/assets/data/data.json";
+// for live server
+if (window.location.href.includes("http://127.0.0.1:5500/")) {
+	dataPath = "/assets/data/data.json";
+}
 
 let players;
 let selectedPlayers;
@@ -106,11 +110,17 @@ window.addPlayer = function (event) {
 };
 
 // deletePlayer
-window.deletePlayer = function (id) {
+window.deletePlayer = function (event, id) {
+	const element = event.currentTarget.closest(".player");
+	const deletedPlayer = players.find((player) => player.id == id);
 	players = players.filter((player) => player.id != id);
-	displayPlayersList(players);
+	// displayPlayersList(players);
+	element.classList.add("fade-out");
+	element.addEventListener("animationend", function () {
+		this.remove();
+	});
 	updateLocalStoragePlayers();
-	selectedPlayers = selectedPlayers.map((player) => (player.id == id ? "empty" : player));
+	selectedPlayers = selectedPlayers.map((player) => (player.id == id ? { position: deletedPlayer.position } : player));
 	displaySelectedPlayers(selectedPlayers);
 };
 // open EditForm
@@ -198,6 +208,7 @@ function isValidNumber(value) {
 	return !isNaN(num) && num >= 0 && num <= 99;
 }
 
+// display 11 selected players in the stadium
 function displaySelectedPlayers(selectedPlayers) {
 	el(".terrain").innerHTML = selectedPlayers
 		.map((player, i) =>
@@ -210,6 +221,7 @@ function updateLocalStorageSelectedPlayers() {
 	localStorage.setItem("selected-players", JSON.stringify(selectedPlayers));
 }
 
+// deletePlayer from stadium
 window.deletePlayerBadge = function (id) {
 	const index = selectedPlayers.findIndex((player) => player.id == id);
 	selectedPlayers[index] = { ...initialSelectedPlayers[index] };
@@ -219,6 +231,7 @@ window.deletePlayerBadge = function (id) {
 };
 
 let indexInSeleceted;
+// select placeholder player badge
 window.placePlayer = function (event, index, position) {
 	All(".terrain .player").forEach((p) => p.classList.remove("active-badge"));
 	event.currentTarget.classList.add("active-badge");
@@ -229,9 +242,10 @@ window.placePlayer = function (event, index, position) {
 	displayPlayersList(filteredPlayers);
 };
 
+// choose player and display it in stadium
 window.choosePlayer = function (event) {
 	const player = players.find((player) => player.id == event.currentTarget.id);
-	const isAlreadyChoosed = selectedPlayers.findIndex((p) => p.id == player.id) !== -1;
+	const isAlreadyChoosed = selectedPlayers.findIndex((p) => p.id == player?.id) !== -1;
 	if (indexInSeleceted && isAlreadyChoosed) alert("This player is already choosed");
 	else {
 		selectedPlayers[indexInSeleceted] = player;
@@ -252,15 +266,9 @@ window.addEventListener("load", function () {
 });
 
 // clear selected players
-
 el("#clear").addEventListener("click", () => {
 	selectedPlayers = [...initialSelectedPlayers];
 	displaySelectedPlayers(selectedPlayers);
 	updateLocalStorageSelectedPlayers();
 	displayPlayersList(players);
-});
-
-// synchronise the localstorage with the UI
-window.addEventListener("storage", function (event) {
-	console.log("Storage event triggered:", event);
 });

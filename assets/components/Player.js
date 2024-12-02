@@ -5,7 +5,7 @@ export default function (player) {
 						onclick="openEditForm(${player.id})"
 						class="fa-regular fa-pen-to-square text-[.75rem] hover:scale-125 transition-transform cursor-pointer"></i>
 					<i
-						onclick="deletePlayer(${player.id})"
+						onclick="deletePlayer(event, ${player.id})"
 						class="delete-icon fa-solid fa-xmark text-sm hover:scale-125 transition-transform cursor-pointer"></i>
 				</div>
 				<img class="avatar max-w-12  xs:max-w-10 sm:max-w-8 aspect-square object-cover" src="${player.photo}" alt="" />
